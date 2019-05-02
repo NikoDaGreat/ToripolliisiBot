@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater, CommandHandler
 import os
-import urllib2
+from urllib.request import urlopen
 
 # API-avain
 token = os.environ['TGTORI_TOKEN']
@@ -14,7 +14,7 @@ def start(bot, update):
 
 def toripolliisi(bot, update):
     chat_id = update.message.chat.id
-    live_kuva = urllib2.urlopen("http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg")
+    live_kuva = urlopen("http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg")
     bot.send_photo(chat_id, photo=open(live_kuva, 'rb'))
 
 
