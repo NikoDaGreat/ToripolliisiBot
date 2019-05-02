@@ -14,8 +14,8 @@ def start(bot, update):
 
 def toripolliisi(bot, update):
     chat_id = update.message.chat.id
-    live_kuva = urlretrieve("http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg")
-    bot.send_photo(chat_id, photo=open(live_kuva, 'rb'))
+    urlretrieve("http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg", "tori.jpg")
+    bot.send_photo(chat_id, photo=open('tori.jpg', 'rb'))
 
 
 updater = Updater(token)
