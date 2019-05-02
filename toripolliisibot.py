@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater, CommandHandler
 import os
+from urllib.request import urlopen # requiters Python 3
 
 # API-avain
 token = os.environ['TGTORI_TOKEN']
@@ -12,7 +13,10 @@ def start(bot, update):
 
 
 def toripolliisi(bot, update):
-    pass
+    chat_id = update.message.chat.id
+    live_kuva = urlopen("http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg")
+    bot.send_photo(chat_id, photo=open(live_kuva, 'rb'))
+
 
 updater = Updater(token)
 updater.dispatcher.add_handler(CommandHandler('start', start))
