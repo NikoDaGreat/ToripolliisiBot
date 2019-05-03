@@ -21,15 +21,15 @@ def toripolliisi(bot, update):
     img = Image.open("tori.jpg")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("TitilliumWeb-Bold.ttf", 38)
-    x, y = 1320, 510
+    x, y = 1320, 490
     filliColour="black"
     teksti="Toripolliisi"
+    draw.ellipse((x+20, y+20, x+180, y+180), outline ='red')
     draw.text((x-1, y-1), teksti, font=font, fill=filliColour)
     draw.text((x+1, y-1), teksti, font=font, fill=filliColour)
     draw.text((x-1, y+1), teksti, font=font, fill=filliColour)
     draw.text((x+1, y+1), teksti, font=font, fill=filliColour)
     draw.text((x, y),teksti,(255,255,255),font=font)
-    draw.ellipse((x+20, y+20, x-180, y-180), outline ='red')
     img.save('tori-teksti.jpg')
     bot.send_photo(chat_id, photo=open('tori-teksti.jpg', 'rb'))
 
