@@ -1,9 +1,9 @@
-# ToripollisiBot
+# Fyysikkokillan fuksimatrikkeli 2019 pistebot
 
-Telegrambotti, joka näyttää livekuvan Oulun kaupungin Kauppatorilta. Käytetty feedi löytyy [Oulun Kaupungin sivuilta](https://www.ouka.fi/oulu/oulu-tietoa/nettikamerat).
+Aalto yliopiston Fyysikkokillan fuksimatrikkeli 2019 korttipelin pisteytys telegrambotti
 
 ## Vaatimukset
-* Python 3
+* Python 2.7.2+
 * [Python Telegram Bot](https://github.com/python-telegram-bot/python-telegram-bot)
 ```
 $ pip install python-telegram-bot
@@ -13,24 +13,27 @@ $ pip install python-telegram-bot
 * Luo botti ja saa API-avain [@BotFather](http://t.me/BotFather)
 * Tallenna API-avain ENV-muuttujaksi
 ```
-$ export TGTORI_TOKEN=”ApiAvainTähän”
+$ export TGPISTE_TOKEN=”ApiAvainTähän”
 ```
 
 ## Käynnistys
 ```
-$ screen -S toripolliisibot
-$ python toripolliisi.py
+$ screen -S pistebot
+$ python pistebot.py
 ```
 
 ## Käyttö
-* Lähetä botille komento ```/toripolliisi```
+Voit laskea pisteet komennolla "/pisteet x_1 x_2 ... x_n", missä x_n on korttien määrä jokaisessa ryhmässäsi.
+* Jos jostain ryhmästä ei ole yhtään korttia, ei tarvitse merkitä 0.
+Pisteet lasketaan oheisen kaavan mukaan.
 
-<img src="http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg" alt="Livefeedi" width="50%" height="50%" style="
+<img src="https://raw.githubusercontent.com/NikoDaGreat/fk-fuksimatrikkeli-2019-pistebot/master/kaava.jpg" alt="LaTeX-kaava" width="50%" height="50%" style="
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%; "/>
 
 ## Suuret kiitokset
-* Oulun kaupunki
-* Aalto yliopiston Fyysikkokillan kahvikone
+* Matrikkelitoimikunta 2019
+* Fyysikkokillan kahvikone
+* [kvantti-telegram-bot-example](https://github.com/EinariTuukkanen/kvantti-telegram-bot-example)

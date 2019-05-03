@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
-from telegram.ext import Updater, CommandHandler
+from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 import os
 from urllib.request import urlretrieve
+from PIL import Image
+from PIL import ImageFont
+from PIL import ImageDraw
 
 # API-avain
 token = os.environ['TGTORI_TOKEN']
@@ -15,11 +18,25 @@ def start(bot, update):
 def toripolliisi(bot, update):
     chat_id = update.message.chat.id
     urlretrieve("http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg", "tori.jpg")
-    bot.send_photo(chat_id, photo=open('tori.jpg', 'rb'))
+    img = Image.open("tori.jpg")
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype("TitilliumWeb-Bold.ttf", 16)
+    draw.text((1400, 550),"Toripolliisi",(255,255,255),font=font)
+    img.save('tori-teksti.jpg')
+    bot.send_photo(chat_id, photo=open('tori-teksti.jpg', 'rb'))
+
+
+def handle_message(bot, update):
+    if update.message.text:
+        words = update.message.text.split()
+        words = list(map(lambda x: x.lower(), words))
+        if "toripolliisi" in words:
+            toripolliisi(bot, update)
 
 
 updater = Updater(token)
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('toripolliisi', toripolliisi))
+updater.dispatcher.add_handler(MessageHandler(Filters.all, handle_message))
 updater.start_polling()
 updater.idle()

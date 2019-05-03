@@ -1,0 +1,4 @@
+# Älä huomioi temp-fileä #
+*.jpg
+*.png
+*.ttf
