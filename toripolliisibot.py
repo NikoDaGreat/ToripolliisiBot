@@ -20,8 +20,8 @@ def toripolliisi(bot, update):
     urlretrieve("http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg", "tori.jpg")
     img = Image.open("tori.jpg")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("TitilliumWeb-Bold.ttf", 32)
-    x, y = 1350, 520
+    font = ImageFont.truetype("TitilliumWeb-Bold.ttf", 38)
+    x, y = 1320, 510
     filliColour="black"
     teksti="Toripolliisi"
     draw.text((x-1, y-1), teksti, font=font, fill=filliColour)
@@ -29,6 +29,7 @@ def toripolliisi(bot, update):
     draw.text((x-1, y+1), teksti, font=font, fill=filliColour)
     draw.text((x+1, y+1), teksti, font=font, fill=filliColour)
     draw.text((x, y),teksti,(255,255,255),font=font)
+    draw.ellipse((x+20, y+20, x-180, y-180), outline ='red')
     img.save('tori-teksti.jpg')
     bot.send_photo(chat_id, photo=open('tori-teksti.jpg', 'rb'))
 
