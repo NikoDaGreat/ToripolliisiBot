@@ -24,7 +24,7 @@ def toripolliisi(bot, update):
     x, y = 1320, 490
     filliColour="black"
     teksti="Toripolliisi"
-    draw.ellipse((x+20, y+20, x+180, y+180), outline ='red')
+    draw.ellipse((x+5, y+35, x+180, y+180), outline ='red')
     draw.text((x-1, y-1), teksti, font=font, fill=filliColour)
     draw.text((x+1, y-1), teksti, font=font, fill=filliColour)
     draw.text((x-1, y+1), teksti, font=font, fill=filliColour)
