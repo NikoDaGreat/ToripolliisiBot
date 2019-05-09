@@ -2,12 +2,11 @@
 from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 import os
 from urllib.request import urlretrieve
-from PIL import Image
-from PIL import ImageFont
-from PIL import ImageDraw
+from PIL import Image, ImageFont, ImageDraw
 
 # API-avain
 token = os.environ['TGTORI_TOKEN']
+
 
 def start(bot, update):
     chat_id = update.message.chat.id
@@ -22,14 +21,14 @@ def toripolliisi(bot, update):
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("TitilliumWeb-Bold.ttf", 38)
     x, y = 1320, 490
-    filliColour="black"
-    teksti="Toripolliisi"
-    draw.ellipse((x+5, y+35, x+180, y+180), outline ='red')
+    filliColour = "black"
+    teksti = "Toripolliisi"
+    draw.ellipse((x+5, y+35, x+180, y+180+30), outline='red')
     draw.text((x-1, y-1), teksti, font=font, fill=filliColour)
     draw.text((x+1, y-1), teksti, font=font, fill=filliColour)
     draw.text((x-1, y+1), teksti, font=font, fill=filliColour)
     draw.text((x+1, y+1), teksti, font=font, fill=filliColour)
-    draw.text((x, y),teksti,(255,255,255),font=font)
+    draw.text((x, y), teksti, (255, 255, 255), font=font)
     img.save('tori-teksti.jpg')
     bot.send_photo(chat_id, photo=open('tori-teksti.jpg', 'rb'))
 
