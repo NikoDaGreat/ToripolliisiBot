@@ -7,6 +7,7 @@ Telegrambotti, joka näyttää livekuvan Oulun kaupungin Kauppatorilta. Käytett
 * [Python Telegram Bot](https://github.com/python-telegram-bot/python-telegram-bot)
 ```
 $ pip install python-telegram-bot
+$ pip install pil
 ```
 
 ## Asennus
