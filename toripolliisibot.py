@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 import os
-from urllib2 import urlopen
+from urllib.request import urlopen
 from PIL import Image, ImageFont, ImageDraw
 
 # API-avain
