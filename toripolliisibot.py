@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 import os
-from urllib.request import urlretrieve
+from urllib2 import urlopen
 from PIL import Image, ImageFont, ImageDraw
 
 # API-avain
@@ -16,7 +16,9 @@ def start(bot, update):
 
 def toripolliisi(bot, update):
     chat_id = update.message.chat.id
-    urlretrieve("http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg", "tori.jpg")
+    filedata = urlopen("http://www.oulunkaupunki.fi/_private/kamera/picture1.jpg")
+    with open("tori.jpg", 'wb') as f:
+        f.write(filedata.read())
     img = Image.open("tori.jpg")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("TitilliumWeb-Bold.ttf", 38)
