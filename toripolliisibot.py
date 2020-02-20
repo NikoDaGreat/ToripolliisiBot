@@ -41,8 +41,6 @@ def handle_message(bot, update):
         words = list(map(lambda x: x.lower(), words))
         if "toripolliisi" in words:
             toripolliisi(bot, update)
-        if "ines" in words or "iines" in words:
-            bot.send_photo(update.message.chat.id, photo=open('ines.jpg', 'rb'))
 
 
 updater = Updater(token)

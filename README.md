@@ -1,6 +1,6 @@
 # ToripollisiBot
 
-Telegrambotti, joka näyttää livekuvan Oulun kaupungin Kauppatorilta. Käytetty feedi löytyy [Oulun Kaupungin sivuilta](https://www.ouka.fi/oulu/oulu-tietoa/nettikamerat). Botti löytyy nickillä [@ToripolliisiBot](http://t.me/ToripollisiBot)
+Telegrambotti, joka näyttää livekuvan Oulun kaupungin Kauppatorilta. Käytetty feedi löytyy [Oulun Kaupungin sivuilta](https://www.ouka.fi/oulu/oulu-tietoa/nettikamerat). Botti löytyy nickillä [@ToripolliisiBot](http://t.me/ToripolliisiBot)
 
 ## Vaatimukset
 * Python 3
