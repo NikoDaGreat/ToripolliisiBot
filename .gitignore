@@ -1,3 +1,4 @@
 # Älä huomioi temp-fileä #
 *.jpg
-*.png
+# *.png
+*.ini
