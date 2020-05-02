@@ -33,8 +33,8 @@ def toripolliisi(bot, update):
     draw.text((x, y), teksti, (255, 255, 255), font=font)
 
     #offset = ((bg_w - img_w) // 2, (bg_h - img_h) // 2)
-    suur = Image.open("suur.png")
-    img.paste(suur, (0, 0), suur)
+    #suur = Image.open("suur.png")
+    #img.paste(suur, (0, 0), suur)
 
     img.save('tori-teksti.jpg')
     bot.send_photo(chat_id, photo=open('tori-teksti.jpg', 'rb'))
